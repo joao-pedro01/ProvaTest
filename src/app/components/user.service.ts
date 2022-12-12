@@ -8,5 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  
+  private readonly API = "https://jsonplaceholder.typicode.com/users";
+  constructor(private http: HttpClient) { }
+
+  listar(): Observable<User[]> {
+    return this.http.get<User[]>(this.API);
+  }
 }
